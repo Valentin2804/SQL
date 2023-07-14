@@ -78,7 +78,7 @@ public class JDBCHelper {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         // създаване на connection string
-        String connectionString = "jdbc:mysql://127.0.0.1:3306/EKATTE?user=root&password=0000";
+        String connectionString = "jdbc:mysql://127.0.0.1:3306/EKATTE?user=root&password=";
 
         // създаване на връзка към БД
         Connection con = DriverManager.getConnection(connectionString);
