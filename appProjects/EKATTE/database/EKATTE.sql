@@ -1,0 +1,33 @@
+CREATE DATABASE EKATTE;
+USE EKATTE;
+
+CREATE TABLE Regions (
+    Id CHAR(3) NOT NULL PRIMARY KEY,
+    Name VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE Townships (
+    Id CHAR(5) NOT NULL PRIMARY KEY,
+    Name VARCHAR(25) NOT NULL,
+    RegionId CHAR(3) NOT NULL,
+    
+    FOREIGN KEY (RegionId) REFERENCES Regions(Id)
+);
+
+CREATE TABLE TownHalls (
+    Id CHAR(8) NOT NULL,
+    Category INTEGER,
+    Name VARCHAR(25),
+    TownshipId CHAR(5) NOT NULL,
+    
+    PRIMARY KEY (Id, Category),
+    FOREIGN KEY (TownshipId) REFERENCES Townships(Id)
+);
+
+CREATE TABLE Places (
+    EKATTE CHAR(5) NOT NULL PRIMARY KEY,
+    Name VARCHAR(25) NOT NULL,
+    TownHallId CHAR(8) NOT NULL,
+    
+    FOREIGN KEY (TownHallId) REFERENCES TownHalls(Id)
+);
